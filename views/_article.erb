@@ -11,8 +11,8 @@
       <% end %>
     <% else %>
       <%= article.body.formatted %>
-      
       <% if article.instance_of?(Serious::Article) %>
+        <%= render_partial :about %> 
         <span class="author right">Written by <%= article.author %></span>   
         <%= render_partial :disqus if Serious.disqus %> 
       <% end %>
