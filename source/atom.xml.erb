@@ -1,0 +1,26 @@
+---
+layout: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title><%= settings.site_title %></title>
+ <link href="<%= settings.site_url %>/atom.xml" rel="self"/>
+ <link href="<%= settings.site_url %>/"/>
+ <updated><%= blog.articles.first.date.to_time.iso8601 %></updated>
+ <id><%= settings.site_url %></id>
+ <author>
+   <name><%= settings.author %></name>
+ </author>
+ 
+ <% blog.articles.each do |article| %>
+ <entry>
+   <title><%= article.title %></title>
+   <link href="<%= article.url %>"/>
+   <updated><%= article.date.to_time.iso8601 %></updated>
+   <id><%= article.url %></id>
+   <content type="html"><%= CGI.escapeHTML(article.body) %></content>
+ </entry>
+ <% end %>
+ 
+</feed>
