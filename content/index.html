@@ -1,0 +1,14 @@
+---
+title: Posts
+---
+
+<section id="content">
+<% @site.sorted_articles[0, 10].each do |article| %>
+  <article class="post">
+    <h2 class="post-title"><%= link_to article[:title], article.path %></h2>
+    <div class="post-content">
+      <%= article_summary(article) %>
+    </div>
+  </article>
+<% end %>
+</section>

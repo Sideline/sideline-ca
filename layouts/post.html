@@ -1,0 +1,18 @@
+<% render 'default' do %>
+<section id="content">
+  <article class="post">
+    <h2 class="post-title"><a href="<%= item[:url] %>"><%= item[:title] %></a></h2>
+    <div class="post-content">
+      <%= yield %>
+    </div>
+    <section class="meta">
+      <h3>Discussion, links, and tweets</h3>
+      <section class="copy">
+        <p>
+          Bio goes here...
+        </p>
+      </section>
+    </section>
+  </article>
+</section>
+<% end %>

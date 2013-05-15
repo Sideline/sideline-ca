@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>
+  <%= @site.config[:meta_data][:title] + ' - ' + @item[:title] %>
+  </title>
+  <meta name="author" content="<%= @site.config[:meta_data][:author] %>" />
+  <meta name="description" content="<%= @site.config[:meta_data][:description] %>" />
+
+<link rel="alternate" type="application/rss+xml" href="atom.xml">
+<link rel="stylesheet" href="/stylesheets/base.css" type="text/css" media="screen, projection">
+<link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header id="header" class="page-container">
+    <h2><a href="/"><%= @site.config[:meta_data][:title] %></a></h2>
+    <p><%= @site.config[:meta_data][:description] %></p>
+  </header>
+  
+  <div class="page-wrapper">
+    <div class="page-container content-wrapper">
+      
+      <nav id="sidebar">
+        <ul class="menu">
+          <li><a href="/">Front page</a></li>
+          <li><a href="#">Subscribe</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="http://twitter.com/<%= @site.config[:meta_data][:twitter] %>">@<%= @site.config[:meta_data][:twitter] %></a></li>
+        </ul>
+        
+        <div id="about">
+          <h2>About Hopper</h2>
+          <p>
+            Hopper can help you plan annual performance goals and coordinate feedback.
+          </p>
+          <a href="https://www.hopper.io">Learn more &gt;</a>
+        </div>                
+      </nav>      
+      
+      
+      <%= yield %>
+  
+  
+  
+ 
+</body>
+</html>
