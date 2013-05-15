@@ -112,3 +112,15 @@ configure :build do
   # Or use a different image path
   # set :http_path, "/Content/images/"
 end
+
+# Activate sync extension
+activate :sync do |sync|
+  sync.fog_provider = 'AWS'
+  sync.fog_directory = 'www.sideline.ca'
+  sync.fog_region = 'us-east-1'
+  sync.aws_access_key_id = ENV['AWS_ACCESS_KEY']
+  sync.aws_secret_access_key = ENV['AWS_SECRET_KEY']
+  sync.existing_remote_files = 'keep'
+  # sync.gzip_compression = false 
+  sync.after_build = true 
+end
